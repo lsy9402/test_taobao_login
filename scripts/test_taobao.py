@@ -25,7 +25,7 @@ class Test_taobao :
 
     def teardown_class(self):
         print("teardown_class")
-        self.taobao_page.quit(1)  # 退出
+        self.driver.quit(1)  # 退出
     def teardown(self):
         print("teardown")
 
