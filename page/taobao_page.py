@@ -22,3 +22,7 @@ class Taobao_page(Base_action):
     # 点击登陆
     def click_login(self):
         self.click("class='fm-button fm-submit password-login'")
+
+
+    def is_login(self):
+        self.is_element_present("login-error-msg")

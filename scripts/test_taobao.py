@@ -34,5 +34,4 @@ class Test_taobao :
         with allure.step("3.点击登陆"):
             self.taobao_page.click_login()
         self.taobao_page.allure_screen("登陆失败页面")        # 截图
-        ddd
-        # self.taobao_page.assert()
+        self.taobao_page.is_login()
