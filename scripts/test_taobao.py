@@ -13,12 +13,15 @@ class Test_taobao :
     def setup_class(self):
         self.driver = init_driver_Firefox()     # 创建driver
         self.taobao_page = Taobao_page(self.driver)     # 加载page
+        print("setup_class")
     def setup_function(self):
-        self.taobao_page.get_('http://www.taobao.com')  # 打开淘宝
-        self.taobao_page.click_partial_link_text("亲，请登录")  # 转到登陆页面
-    # def teardown_function(self):
-    #     self.taobao_page.close(1)    # 关闭窗口
+
+        print("setup_function")
+    def teardown_function(self):
+        print("teardown_function")
+        # self.taobao_page.close(1)    # 关闭窗口
     def teardown_class(self):
+        print("teardown_class")
         self.taobao_page.quit(1)    # 退出
 
     @allure.feature("登陆模块")
@@ -28,6 +31,7 @@ class Test_taobao :
     @allure.severity('critical')
     @pytest.mark.parametrize("args", data_with_key('test_login'))
     def test_login(self, args):
+        print("执行测试")
         username = str(args["username"])
         password = str(args["password"])
         with allure.step("1.输入账号:" + username ):
