@@ -11,7 +11,7 @@ class Test_taobao :
         self.driver = init_driver_Firefox()  # 创建driver
         self.taobao_page = Taobao_page(self.driver)  # 加载page
     def setup(self):
-        self.taobao_page.click_login()
+        self.taobao_page.jump_login()
     def teardown(self):
         self.taobao_page.back()
     def teardown_class(self):
