@@ -8,36 +8,3 @@ test_login:
   test_login_003:
     username: 13226704547
     password: 62869615q8
-  test_login_004:
-    username: 13226704547
-    password: 62869615q8q
-  test_login_005:
-    username: 13226704547
-    password: 1562210q5741
-  test_login_006:
-    username: 13226704547
-    password: 45256186q3
-  test_login_008:
-    username: 13226704547
-    password: 45256186q3q
-  test_login_009:
-    username: 13226704547
-    password: nishengri
-  test_login_010:
-    username: 13226704547
-    password: zhanghuifeng
-  test_login_011:
-    username: 13226704547
-    password: 15622105q741
-  test_login_012:
-    username: 13226704547
-    password: 156221057q41
-  test_login_013:
-    username: 13226704547
-    password: 1562210574q1
-  test_login_014:
-    username: 13226704547
-    password: 452561863
-  test_login_015:
-    username: 13226704547
-    password: q452561863

@@ -11,7 +11,6 @@ def data_with_key(key):
 
 class Test_taobao :
     def setup(self):
-        self.driver = init_driver_Firefox()     # 创建driver
         self.taobao_page = Taobao_page(self.driver)     # 加载page
         print("setup")
     def setup_function(self):
@@ -22,13 +21,14 @@ class Test_taobao :
 
     def setup_class(self):
         print("setup_class")
+        self.driver = init_driver_Firefox()  # 创建driver
 
     def teardown_class(self):
         print("teardown_class")
-        # self.taobao_page.close(1)    # 关闭窗口
+        self.taobao_page.quit(1)  # 退出
     def teardown(self):
         print("teardown")
-        self.taobao_page.quit(1)    # 退出
+
 
     @allure.feature("登陆模块")
     @allure.story("登陆模块用户名密码错误 登陆失败")
