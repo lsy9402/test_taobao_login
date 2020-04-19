@@ -2,33 +2,20 @@ import os, sys
 sys.path.append(os.getcwd())
 import allure
 import pytest
-from base.base_data import get_yml_data_with_filename_key
+from base.base_data import data_with_key
 from base.base_driver import init_driver_Firefox
 from page.taobao_page import Taobao_page
 
-def data_with_key(key):
-    return get_yml_data_with_filename_key('data', key)
-
 class Test_taobao :
-    def setup(self):
-        self.taobao_page.refresh()
-        print("setup")
-    def setup_function(self):
-
-        print("setup_function")
-    def teardown_function(self):
-        print("teardown_function")
-
     def setup_class(self):
-        print("setup_class")
         self.driver = init_driver_Firefox()  # 创建driver
         self.taobao_page = Taobao_page(self.driver)  # 加载page
-    def teardown_class(self):
-        print("teardown_class")
-        self.taobao_page.quit(5)  # 退出
+    def setup(self):
+        pass
     def teardown(self):
-        print("teardown")
-
+        self.taobao_page.refresh()
+    def teardown_class(self):
+        self.taobao_page.quit(5)  # 退出
 
     @allure.feature("登陆模块")
     @allure.story("登陆模块用户名密码错误 登陆失败")

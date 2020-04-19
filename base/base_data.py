@@ -8,3 +8,5 @@ def get_yml_data_with_filename_key(file_name , key):
         for case_data in data.values():
             case_data_list.append(case_data)
         return case_data_list
+def data_with_key(key):
+    return get_yml_data_with_filename_key('data', key)
