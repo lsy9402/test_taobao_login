@@ -23,8 +23,6 @@ class Base_action:
         self.find_element(loc).send_keys(txt)
     def get_txt(self,loc):      # 获取txt
         return self.find_element(loc).get_attribute('textContent')
-    def quit(self):
-        self.driver.quit()
     def assertin(self, expected, actual, screen = "AssertionError"):
         try:
             assert expected in actual
