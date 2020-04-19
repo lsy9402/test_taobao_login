@@ -11,10 +11,10 @@ def data_with_key(key):
 
 class Test_taobao :
     def setup(self):
-        self.taobao_page = Taobao_page(self.driver)     # 加载page
+
         print("setup")
     def setup_function(self):
-
+        self.taobao_page.refresh()
         print("setup_function")
     def teardown_function(self):
         print("teardown_function")
@@ -22,10 +22,10 @@ class Test_taobao :
     def setup_class(self):
         print("setup_class")
         self.driver = init_driver_Firefox()  # 创建driver
-
+        self.taobao_page = Taobao_page(self.driver)  # 加载page
     def teardown_class(self):
         print("teardown_class")
-        self.driver.quit(1)  # 退出
+        self.taobao_page.quit(5)  # 退出
     def teardown(self):
         print("teardown")
 
