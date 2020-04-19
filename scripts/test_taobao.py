@@ -16,8 +16,8 @@ class Test_taobao :
     def setup_function(self):
         self.taobao_page.get_('http://www.taobao.com')  # 打开淘宝
         self.taobao_page.click_partial_link_text("亲，请登录")  # 转到登陆页面
-    def teardown_function(self):
-        self.taobao_page.close(1)    # 关闭窗口
+    # def teardown_function(self):
+    #     self.taobao_page.close(1)    # 关闭窗口
     def teardown_class(self):
         self.taobao_page.quit(1)    # 退出
 
