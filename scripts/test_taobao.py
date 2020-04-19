@@ -11,10 +11,10 @@ def data_with_key(key):
 
 class Test_taobao :
     def setup(self):
-
+        self.taobao_page.refresh()
         print("setup")
     def setup_function(self):
-        self.taobao_page.refresh()
+
         print("setup_function")
     def teardown_function(self):
         print("teardown_function")
