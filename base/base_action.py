@@ -23,14 +23,6 @@ class Base_action:
         self.find_element(loc).send_keys(txt)
     def get_txt(self,loc):      # 获取txt
         return self.find_element(loc).get_attribute('textContent')
-    def assertin(self, expected, actual, screen = "AssertionError"):
-        try:
-            assert expected in actual
-        except AssertionError:
-            now_time = time.strftime('%Y-%m-%d_%H:%M:%S')       # 设置时间
-            self.screenshot(screen + now_time)  # 上传图片到报告
-            allure.attach(open("./screen/" + screen + now_time + ".png", "rb").read(), "失败截图", allure.attachment_type.PNG)      # 上传图片到报告
-            raise AssertionError
     def find_element(self, loc):       # 处理参数
         if type(loc) == str:
             value = self.make_xpath_with_feature(loc)
@@ -62,3 +54,9 @@ class Base_action:
         now_time = time.strftime('%Y-%m-%d_%H:%M:%S')  # 设置时间
         self.screenshot(file_name + now_time)  # 截图
         allure.attach(open("./reports/screen/" + file_name + now_time + ".png", "rb").read(), file_name,allure.attachment_type.PNG)  # 上传图片到报告
+    def assertin(self, expected, actual, screen = "AssertionError"):
+        try:
+            assert expected in actual
+        except AssertionError:
+            self.allure_screen('失败截图')    # 上传图片到报告
+            raise AssertionError

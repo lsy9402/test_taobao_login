@@ -20,7 +20,7 @@ class Test_taobao :
         self.taobao_page.quit(10)    # 关闭driver
 
     @allure.feature("登陆模块")
-    @allure.story("用户名密码错误 登陆失败")
+    @allure.story("登陆模块用户名密码错误 登陆失败")
     @allure.step("用户名密码错误 登陆失败")
     @allure.severity('critical')
     @pytest.mark.parametrize("args", data_with_key('test_login'))
@@ -34,3 +34,5 @@ class Test_taobao :
         with allure.step("3.点击登陆"):
             self.taobao_page.click_login()
         self.taobao_page.allure_screen("登陆失败页面")        # 截图
+        ddd
+        # self.taobao_page.assert()
