@@ -6,8 +6,8 @@ from base.base_action import Base_action
 class Taobao_page(Base_action):
     def __init__(self,driver):
         Base_action.__init__(self, driver)
-        self.taobao_page.get_('http://www.taobao.com')  # 打开淘宝
-        self.taobao_page.click_partial_link_text("亲，请登录")  # 转到登陆页面
+        self.get_('http://www.taobao.com')  # 打开淘宝
+        self.click_partial_link_text("亲，请登录")  # 转到登陆页面
     username = "@name='fm-login-id'"
     password = By.ID, "fm-login-password"
     def input_username(self, username):     # 输入账号
