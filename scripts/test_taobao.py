@@ -13,10 +13,10 @@ class Test_taobao :
     def setup_module(self):
         self.driver = init_driver_Firefox()     # 创建driver
         self.taobao_page = Taobao_page(self.driver)     # 加载page
-    def setup_method(self):
+    def setup_function(self):
         self.taobao_page.get_('http://www.taobao.com')  # 打开淘宝
         self.taobao_page.click_partial_link_text("亲，请登录")  # 转到登陆页面
-    def teardown_method(self):
+    def teardown_function(self):
         self.taobao_page.close(1)    # 关闭窗口
     def teardown_module(self):
         self.taobao_page.quit(1)    # 退出
