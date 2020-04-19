@@ -62,6 +62,7 @@ class Base_action:
             raise AssertionError
     def is_element_present(self, loc):
         try:
+            print("打印信息：")
             print(self.find_element(loc).text)
         except AssertionError as e:     # 打印异常信息
             print(e)        # 发生了异常，说明页面中未找到该元素，返回False
