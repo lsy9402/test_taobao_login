@@ -1,5 +1,5 @@
 import sys
-import time
+from time import sleep
 import allure
 
 class Base_action:
@@ -8,17 +8,20 @@ class Base_action:
     def get_(self, url = ""):
         self.driver.get(url)
     def click(self, loc):       # 点击
-        self._find_element(loc).click()
+        self.find_element(loc).click()
     def click_partial_link_text(self, txt):
         self.driver.find_element_by_partial_link_text(txt).click()
     def clear(self, loc):
-        self._find_element(loc).clear()
+        self.find_element(loc).clear()
+    def quit(self, time = 0):
+        sleep(time)
+        self.driver.quit()  # 关闭driver
     def refresh(self):
         self.driver.refresh()
     def input_txt(self,loc,txt):        # 输入txt
-        self._find_element(loc).send_keys(txt)
+        self.find_element(loc).send_keys(txt)
     def get_txt(self,loc):      # 获取txt
-        return self._find_element(loc).get_attribute('textContent')
+        return self.find_element(loc).get_attribute('textContent')
     def quit(self):
         self.driver.quit()
     def assertin(self, expected, actual, screen = "AssertionError"):
@@ -29,7 +32,7 @@ class Base_action:
             self.screenshot(screen + now_time)  # 上传图片到报告
             allure.attach(open("./screen/" + screen + now_time + ".png", "rb").read(), "失败截图", allure.attachment_type.PNG)      # 上传图片到报告
             raise AssertionError
-    def _find_element(self, loc):       # 处理参数
+    def find_element(self, loc):       # 处理参数
         if type(loc) == str:
             value = self.make_xpath_with_feature(loc)
             return self.driver.find_element_by_xpath(value)
