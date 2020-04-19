@@ -16,5 +16,5 @@ class Taobao_page(Base_action):
         self.input_txt(self.password, password)
     def click_login(self):      # 点击登陆
         self.click("class='fm-button fm-submit password-login'")
-    def is_login(self):
-        self.is_element_present("id='login-error'", "登录名或登录密码不正确")
+    def assert_is_login(self):
+        self.assert_is_element_present("id='login-error'", "登录名或登录密码不正确")
