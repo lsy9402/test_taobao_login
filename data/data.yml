@@ -8,3 +8,12 @@ test_login:
   test_login_003:
     username: 13226704547
     password: 62869615q8
+  test_login_004:
+    username: 13226704547
+    password: 415487255433
+  test_login_005:
+    username: 13226704547
+    password: 15454255433
+  test_login_006:
+    username: 13226704547
+    password: 62869615q8

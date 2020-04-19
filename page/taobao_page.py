@@ -7,9 +7,10 @@ class Taobao_page(Base_action):
     def __init__(self,driver):
         Base_action.__init__(self, driver)
         self.get_('http://www.taobao.com')  # 打开淘宝
-        self.click_partial_link_text("亲，请登录")  # 转到登陆页面
     username = "@name='fm-login-id'"
     password = By.ID, "fm-login-password"
+    def click_login(self):
+        self.click_partial_link_text("亲，请登录")  # 转到登陆页面
     def input_username(self, username):     # 输入账号
         self.input_txt(self.username, username)
     def input_password(self, password):     # 输入密码
