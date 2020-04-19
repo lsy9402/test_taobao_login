@@ -55,8 +55,8 @@ class Base_action:
         now_time = time.strftime('%Y-%m-%d_%H:%M:%S')        # 设置时间
         self.driver.get_screenshot_as_file("../Image/%s_%s.png" % (now_time, str(sys.exc_info()[1])))        # 断言失败截图
     def screenshot(self, file_name):
-        self.driver.get_screenshot_as_file("./screen/" + file_name + ".png")
+        self.driver.get_screenshot_as_file("./reports/screen/" + file_name + ".png")
     def allure_screen(self,file_name):
         now_time = time.strftime('%Y-%m-%d_%H:%M:%S')  # 设置时间
-        self.screenshot(file_name + now_time)  # 上传图片到报告
+        self.screenshot(file_name + now_time)  # 截图
         allure.attach(open("./reports/screen/" + file_name + now_time + ".png", "rb").read(), file_name,allure.attachment_type.PNG)  # 上传图片到报告
