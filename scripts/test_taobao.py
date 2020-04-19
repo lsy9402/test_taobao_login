@@ -10,7 +10,7 @@ def data_with_key(key):
     return get_yml_data_with_filename_key('data', key)
 
 class Test_taobao :
-    def setup_module(self):
+    def setup_class(self):
         self.driver = init_driver_Firefox()     # 创建driver
         self.taobao_page = Taobao_page(self.driver)     # 加载page
     def setup_function(self):
@@ -18,7 +18,7 @@ class Test_taobao :
         self.taobao_page.click_partial_link_text("亲，请登录")  # 转到登陆页面
     def teardown_function(self):
         self.taobao_page.close(1)    # 关闭窗口
-    def teardown_module(self):
+    def teardown_class(self):
         self.taobao_page.quit(1)    # 退出
 
     @allure.feature("登陆模块")
