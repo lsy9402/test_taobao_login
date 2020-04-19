@@ -15,7 +15,7 @@ class Test_taobao :
         self.taobao_page = Taobao_page(self.driver)     # 加载page
 
     def teardown(self):
-        self.taobao_page.quit(3)    # 3秒关闭driver
+        self.taobao_page.quit(1)    # 关闭driver
 
     @allure.feature("登陆模块")
     @allure.story("登陆模块用户名密码错误 登陆失败")
