@@ -26,7 +26,7 @@ class Test_taobao :
     @pytest.mark.parametrize("args", data_with_key('test_login'))
     def test_login(self, args):
         username = str(args["username"])
-        password = args["password"]
+        password = str(args["password"])
         with allure.step("1.输入账号:" + username ):
             self.taobao_page.input_username(username)
         with allure.step("2.输入密码:" + password):
