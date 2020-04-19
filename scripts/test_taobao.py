@@ -29,7 +29,7 @@ class Test_taobao :
             self.taobao_page.input_username(username)
         with allure.step("2.输入密码:" + password):
             self.taobao_page.input_password(password)
-        # with allure.step("3.点击登陆"):
-        #     self.taobao_page.click_login()
+        with allure.step("3.点击登陆"):
+            self.taobao_page.click_login()
         self.taobao_page.allure_screen("登陆失败页面")        # 截图
         self.taobao_page.is_login()     # 查看登陆错误提示
