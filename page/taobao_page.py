@@ -25,4 +25,4 @@ class Taobao_page(Base_action):
 
 
     def is_login(self):
-        self.is_element_present("login-error-msg")
+        self.is_element_present("id='login-error'")
