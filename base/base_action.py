@@ -12,8 +12,12 @@ class Base_action:
         self.driver.back()
     def refresh(self):      # 控制浏览器刷新
         self.driver.refresh()
-    def close(self):        # 控制浏览器关闭
-        self.driver.close()
+    def close(self, time = 0):        # 控制浏览器关闭
+        sleep(time)
+        self.driver.close()     # 关闭driver
+    def quit(self, time = 0):   # 控制浏览器退出
+        sleep(time)
+        self.driver.quit()  # 退出driver
     def set_page_load_time(self):
         self.driver.set_page_load_time()
     def set_window_size(self, width, height):       # 通过像素设置浏览器的大小
@@ -30,9 +34,6 @@ class Base_action:
         self.driver.find_element_by_partial_link_text(txt).click()
     def clear(self, loc):       # 清除文本
         self.find_element(loc).clear()
-    def quit(self, time = 0):   # 控制浏览器退出
-        sleep(time)
-        self.driver.quit()  # 关闭driver
     def input_txt(self,loc,txt):        # 输入文本
         self.find_element(loc).send_keys(txt)
     def get_txt(self,loc):      # 获取文本
