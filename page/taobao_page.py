@@ -1,28 +1,20 @@
 import os, sys
-from selenium.webdriver.common.by import By
-
 sys.path.append(os.getcwd())
+from selenium.webdriver.common.by import By
 from base.base_action import Base_action
-
 
 class Taobao_page(Base_action):
     def __init__(self,driver):
         Base_action.__init__(self, driver)
-        self.get_('http://www.taobao.com')
-        self.click_partial_link_text("亲，请登录")
-
+        self.get_('http://www.taobao.com')      # 打开淘宝
+        self.click_partial_link_text("亲，请登录")       # 转到登陆页面
     username = "@name='fm-login-id'"
     password = By.ID, "fm-login-password"
-
-    def input_username(self, username):
+    def input_username(self, username):     # 输入账号
         self.input_txt(self.username, username)
-    # 输入密码
-    def input_password(self, password):
+    def input_password(self, password):     # 输入密码
         self.input_txt(self.password, password)
-    # 点击登陆
-    def click_login(self):
+    def click_login(self):      # 点击登陆
         self.click("class='fm-button fm-submit password-login'")
-
-
     def is_login(self):
         self.is_element_present("id='login-error'")
